@@ -1,0 +1,904 @@
+/* CSS Variables */
+:root {
+    /* Основные цвета из приложения */
+    --primary: #40E0D0;
+    --primary-dark: #2BA5A0;
+    --primary-light: #5EEAD4;
+    
+    /* Фоновые цвета */
+    --background: #0A0F14;
+    --background-light: #111922;
+    --panel-dark: #060A0D;
+    --panel-border: rgba(64, 224, 208, 0.1);
+    
+    /* Текстовые цвета */
+    --text: #F0F4F8;
+    --text-dim: #7DD3C0;
+    --text-secondary: #94A3B8;
+    
+    /* Статусы */
+    --success: #5EEAD4;
+    --progress: #FBBF24;
+    --planned: #64748B;
+    --error: #F87171;
+}
+
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: var(--background);
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+    color: var(--text);
+}
+
+/* Background Gradient Effect */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 20% 30%, rgba(64, 224, 208, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(43, 165, 160, 0.06) 0%, transparent 50%),
+        radial-gradient(circle at 50% 50%, rgba(64, 224, 208, 0.04) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: -1;
+}
+
+.container {
+    max-width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+/* Header - Компактная версия */
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.4rem 1rem;
+    background: var(--background-light);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--panel-border);
+    position: relative;
+    z-index: 100;
+    height: 45px;
+}
+
+/* Header left section */
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex: 1;
+}
+
+/* Компактный логотип */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-shrink: 0;
+}
+
+.logo img {
+    height: 30px;
+    width: auto;
+    filter: drop-shadow(0 0 8px rgba(64, 224, 208, 0.4));
+    transition: transform 0.3s ease;
+}
+
+.logo:hover img {
+    transform: scale(1.05);
+}
+
+.logo-text {
+    color: var(--primary);
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: -0.5px;
+    /* Сокращаем на мобильных устройствах */
+    white-space: nowrap;
+}
+
+/* Header divider */
+.header-divider {
+    width: 1px;
+    height: 24px;
+    background: var(--panel-border);
+    opacity: 0.6;
+    transition: opacity 0.3s ease;
+}
+
+.main-title {
+    color: var(--text);
+    font-size: 1.1rem;
+    font-weight: 500;
+    text-shadow: 0 2px 8px rgba(64, 224, 208, 0.15);
+    margin: 0;
+    white-space: nowrap;
+    transition: opacity 0.3s ease;
+}
+
+/* Header right section */
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+/* Компактный переключатель дат */
+.date-toggle {
+    display: flex;
+    gap: 0.25rem;
+    background: var(--panel-dark);
+    padding: 0.15rem;
+    border-radius: 20px;
+    border: 1px solid var(--panel-border);
+    height: 32px;
+}
+
+.date-btn {
+    padding: 0.25rem 0.75rem;
+    background: transparent;
+    border: none;
+    color: var(--text-secondary);
+    font-size: 0.75rem;
+    font-weight: 500;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Montserrat', sans-serif;
+    white-space: nowrap;
+}
+
+.date-btn:hover {
+    color: var(--primary);
+    transform: translateY(-1px);
+}
+
+.date-btn.active {
+    background: var(--primary);
+    color: var(--background);
+    box-shadow: 0 2px 8px rgba(64, 224, 208, 0.3);
+}
+
+
+/* Альтернативный компактный стиль с dropdown для дат */
+.date-toggle-dropdown {
+    position: relative;
+    display: none; /* По умолчанию скрыт, можно включить вместо обычного */
+}
+
+.date-toggle-dropdown.active {
+    display: block;
+}
+
+.date-dropdown-trigger {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.35rem 0.75rem;
+    background: var(--panel-dark);
+    border: 1px solid var(--panel-border);
+    border-radius: 20px;
+    color: var(--primary);
+    font-size: 0.75rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.date-dropdown-trigger:hover {
+    background: rgba(64, 224, 208, 0.1);
+    border-color: var(--primary);
+}
+
+.date-dropdown-trigger::after {
+    content: '▼';
+    font-size: 0.6rem;
+    opacity: 0.7;
+}
+
+.date-dropdown-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    margin-top: 0.5rem;
+    background: var(--background-light);
+    border: 1px solid var(--panel-border);
+    border-radius: 10px;
+    padding: 0.5rem;
+    display: none;
+    z-index: 1000;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+}
+
+.date-dropdown-menu.show {
+    display: block;
+}
+
+.date-dropdown-item {
+    padding: 0.5rem 1rem;
+    color: var(--text-secondary);
+    font-size: 0.8rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.date-dropdown-item:hover {
+    background: rgba(64, 224, 208, 0.1);
+    color: var(--primary);
+}
+
+.date-dropdown-item.active {
+    background: var(--primary);
+    color: var(--background);
+}
+
+/* Анимация для минимизации header */
+.header.minimized {
+    height: 35px !important;
+    padding: 0.3rem 1.5rem;
+}
+
+.header.minimized .logo img {
+    height: 25px;
+}
+
+.header.minimized .main-title {
+    font-size: 0.9rem;
+}
+
+.header.minimized .date-toggle {
+    height: 28px;
+}
+
+.header.minimized .date-btn {
+    padding: 0.2rem 0.6rem;
+    font-size: 0.7rem;
+}
+
+/* Индикатор возможности минимизации */
+.header::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30px;
+    height: 3px;
+    background: var(--panel-border);
+    border-radius: 2px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.header:hover::after {
+    opacity: 0.5;
+}
+
+/* Адаптивность для маленьких экранов */
+@media (max-width: 768px) {
+    .logo-text {
+        display: none;
+    }
+    
+    .header-center::before {
+        display: none;
+    }
+    
+    .main-title {
+        font-size: 0.95rem;
+    }
+    
+    .date-btn {
+        padding: 0.2rem 0.5rem;
+        font-size: 0.7rem;
+    }
+    
+    .header {
+        padding: 0.5rem 1rem;
+    }
+}
+
+/* Main Content */
+.main-content {
+    display: flex;
+    flex: 1;
+    height: calc(100vh - 45px);
+    overflow: hidden;
+}
+
+/* Left Panel - Sidebar - Средний размер */
+.sidebar {
+    width: 240px;
+    background: var(--background-light);
+    border-right: 1px solid var(--panel-border);
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+}
+
+
+.tiles-panel {
+    padding: 0.8rem;
+    padding-top: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.tile {
+    background: var(--panel-dark);
+    border: 1px solid transparent;
+    border-radius: 9px;
+    padding: 0.75rem 0.85rem;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.tile::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 3px;
+    background: transparent;
+    transition: background 0.3s ease;
+}
+
+.tile:hover {
+    background: rgba(64, 224, 208, 0.05);
+    border-color: var(--panel-border);
+    transform: translateX(3px);
+}
+
+.tile.active {
+    background: rgba(64, 224, 208, 0.08);
+    border-color: rgba(64, 224, 208, 0.2);
+}
+
+.tile.active::before {
+    background: var(--primary);
+}
+
+.tile-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.4rem;
+    position: relative;
+    min-height: 28px;
+}
+
+.tile h3 {
+    color: var(--text);
+    font-size: 0.82rem;
+    font-weight: 500;
+    margin: 0;
+    white-space: nowrap;
+}
+
+.tile-avatar,
+.tile-avatars {
+    display: flex;
+    align-items: center;
+}
+
+.tile-avatars .avatar {
+    margin-left: -8px;
+}
+
+.tile-avatars .avatar:first-child {
+    margin-left: 0;
+}
+
+.tile-avatar img,
+.avatar img {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    border: 2px solid var(--background-light);
+    object-fit: cover;
+    transition: all 0.3s ease;
+    background: var(--background);
+}
+
+.tile:hover .tile-avatar img,
+.tile:hover .avatar img {
+    transform: scale(1.1);
+    border-color: var(--primary);
+}
+
+.tile-summary {
+    background: linear-gradient(135deg, rgba(64, 224, 208, 0.08) 0%, rgba(43, 165, 160, 0.04) 100%);
+    border: 1px solid rgba(64, 224, 208, 0.15);
+}
+
+.tile-summary h3 {
+    color: var(--primary);
+    font-weight: 600;
+}
+
+/* Right Panel - Content */
+.content-panel {
+    flex: 1;
+    background: var(--background);
+    overflow-y: auto;
+    position: relative;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--background);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(145deg, rgba(64, 224, 208, 0.3), rgba(45, 212, 191, 0.3));
+    border-radius: 4px;
+    border: 2px solid var(--background);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(145deg, var(--primary), var(--primary-dark));
+}
+
+/* Date Content Wrapper */
+.date-content {
+    display: none;
+    padding: 1.2rem 1.5rem;
+}
+
+.date-content.active {
+    display: block;
+}
+
+.content-section {
+    display: none;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.content-section.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.content-section h2 {
+    display: none; /* Заголовки скрыты для экономии места */
+}
+
+.section-icon {
+    color: var(--primary);
+    font-size: 1.2rem;
+}
+
+.content-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    position: relative;
+}
+
+/* Разделители по статусам */
+.status-group {
+    margin-bottom: 1.2rem;
+}
+
+.status-group-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.6rem;
+    padding-bottom: 0.3rem;
+    border-bottom: 1px solid var(--panel-border);
+    opacity: 0.8;
+}
+
+.status-group-header h3 {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+/* SVG Icons styling */
+.status-icon {
+    flex-shrink: 0;
+    transition: transform 0.3s ease;
+}
+
+.status-group:hover .status-icon {
+    transform: scale(1.1);
+}
+
+/* Additional animation for progress icon */
+.status-icon-progress {
+    animation: pulse-opacity 2s infinite;
+}
+
+@keyframes pulse-opacity {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+}
+
+.status-group[data-status="done"] .status-group-header h3 {
+    color: var(--success);
+}
+
+.status-group[data-status="progress"] .status-group-header h3 {
+    color: var(--progress);
+}
+
+.status-group[data-status="planned"] .status-group-header h3 {
+    color: var(--planned);
+}
+
+/* Task Cards with Status */
+.task-card {
+    position: relative;
+    display: flex;
+    background: var(--background-light);
+    border-radius: 6px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+    margin-bottom: 0.4rem;
+}
+
+.task-card:hover {
+    transform: translateX(2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.task-indicator {
+    width: 4px;
+    background: currentColor;
+    transition: width 0.3s ease;
+}
+
+.task-card:hover .task-indicator {
+    width: 6px;
+}
+
+.task-body {
+    flex: 1;
+    padding: 1rem 1.5rem;
+}
+
+.task-header {
+    display: none !important; /* Скрываем бейджи - теперь есть разделы */
+}
+
+.status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.25rem 0.75rem;
+    border-radius: 15px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: all 0.2s ease;
+}
+
+.status-icon {
+    width: 14px;
+    height: 14px;
+}
+
+/* Status: Done */
+.task-card[data-status="done"] {
+    color: var(--success);
+    border-color: rgba(94, 234, 212, 0.1);
+}
+
+.task-card[data-status="done"] .status-badge {
+    background: rgba(94, 234, 212, 0.15);
+    color: var(--success);
+    border: 1px solid rgba(94, 234, 212, 0.3);
+}
+
+.task-card[data-status="done"]:hover {
+    border-color: rgba(94, 234, 212, 0.2);
+    background: linear-gradient(135deg, rgba(94, 234, 212, 0.03) 0%, transparent 100%);
+}
+
+/* Status: Progress */
+.task-card[data-status="progress"] {
+    color: var(--progress);
+    border-color: rgba(251, 191, 36, 0.1);
+}
+
+.task-card[data-status="progress"] .status-badge {
+    background: rgba(251, 191, 36, 0.15);
+    color: var(--progress);
+    border: 1px solid rgba(251, 191, 36, 0.3);
+    position: relative;
+}
+
+.task-card[data-status="progress"] .status-badge::before {
+    content: '';
+    position: absolute;
+    left: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 5px;
+    height: 5px;
+    background: var(--progress);
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+}
+
+.task-card[data-status="progress"]:hover {
+    border-color: rgba(251, 191, 36, 0.2);
+    background: linear-gradient(135deg, rgba(251, 191, 36, 0.03) 0%, transparent 100%);
+}
+
+/* Status: Planned - Простой фиолетовый стиль */
+.task-card[data-status="planned"] {
+    background: linear-gradient(135deg, 
+        rgba(167, 139, 250, 0.08) 0%, 
+        rgba(196, 181, 253, 0.06) 50%,
+        rgba(139, 92, 246, 0.08) 100%);
+    border: 1px solid rgba(167, 139, 250, 0.35);
+    color: var(--text);
+    box-shadow: 0 4px 20px rgba(167, 139, 250, 0.12);
+    position: relative;
+    overflow: hidden;
+}
+
+.task-card[data-status="planned"] .task-body {
+    position: relative;
+    z-index: 1;
+}
+
+.task-card[data-status="planned"] .status-badge {
+    background: linear-gradient(135deg, #A78BFA 0%, #8B5CF6 100%);
+    color: #FFFFFF;
+    border: none;
+    box-shadow: 0 3px 12px rgba(167, 139, 250, 0.4);
+    font-weight: 600;
+    position: relative;
+    z-index: 2;
+}
+
+.task-card[data-status="planned"]:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(167, 139, 250, 0.15);
+    border-color: rgba(167, 139, 250, 0.4);
+}
+
+.task-card[data-status="planned"] .task-indicator {
+    background: linear-gradient(180deg, #A78BFA 0%, #8B5CF6 100%);
+}
+
+.task-content {
+    color: var(--text);
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* Summary Section */
+#summary {
+    padding-top: 0.25rem !important;
+}
+
+.summary-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 0.25rem;
+}
+
+.summary-block {
+    background: var(--background-light);
+    border: 1px solid var(--panel-border);
+    border-radius: 12px;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.summary-block::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary), var(--primary-dark));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.summary-block:hover {
+    transform: translateY(-3px);
+    border-color: rgba(64, 224, 208, 0.2);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.summary-block:hover::before {
+    opacity: 1;
+}
+
+.summary-block h3 {
+    color: var(--primary);
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.summary-block ul {
+    list-style: none;
+    padding: 0;
+}
+
+.summary-block li {
+    color: var(--text);
+    font-size: 0.85rem;
+    line-height: 1.6;
+    margin-bottom: 0.5rem;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.summary-block li::before {
+    content: '▸';
+    color: var(--primary);
+    font-size: 1rem;
+    position: absolute;
+    left: 0;
+    top: -1px;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .sidebar {
+        width: 250px;
+    }
+    
+    .content-panel {
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        padding: 1rem;
+        gap: 0.75rem;
+    }
+    
+    .main-content {
+        flex-direction: column;
+        height: calc(100vh - 120px);
+    }
+    
+    .sidebar {
+        width: 100%;
+        max-height: 180px;
+        border-right: none;
+        border-bottom: 1px solid var(--panel-border);
+    }
+    
+    .tiles-panel {
+        flex-direction: row;
+        overflow-x: auto;
+        padding: 0.75rem;
+        gap: 0.75rem;
+    }
+    
+    .tile {
+        min-width: 140px;
+        flex-shrink: 0;
+    }
+    
+    .content-panel {
+        padding: 1rem;
+    }
+    
+    .summary-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .date-toggle {
+        transform: scale(0.9);
+    }
+}
+
+@media (max-width: 480px) {
+    .main-title {
+        font-size: 1rem;
+    }
+    
+    .sidebar-title {
+        font-size: 0.7rem;
+    }
+    
+    .tile h3 {
+        font-size: 0.8rem;
+    }
+    
+    .content-section h2 {
+        font-size: 1.3rem;
+    }
+    
+    .task-content {
+        font-size: 0.85rem;
+    }
+}
+
+/* Animation for cards on load */
+.task-card, .summary-block {
+    animation: slideIn 0.5s ease forwards;
+    opacity: 1 !important; /* Принудительно показываем все карточки */
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Stagger animation */
+.task-card:nth-child(1), .summary-block:nth-child(1) { animation-delay: 0.05s; }
+.task-card:nth-child(2), .summary-block:nth-child(2) { animation-delay: 0.1s; }
+.task-card:nth-child(3), .summary-block:nth-child(3) { animation-delay: 0.15s; }
+.task-card:nth-child(4), .summary-block:nth-child(4) { animation-delay: 0.2s; }
+.task-card:nth-child(5) { animation-delay: 0.25s; }
+.task-card:nth-child(6) { animation-delay: 0.3s; }
+.task-card:nth-child(7) { animation-delay: 0.35s; }

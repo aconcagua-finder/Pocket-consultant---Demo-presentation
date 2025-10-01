@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Карманный консультант - Демо день (Ультра-компактная версия)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Ультра-компактный header - 40px */
+        .header-ultra-compact {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.4rem 1.5rem;
+            background: rgba(17, 25, 34, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(64, 224, 208, 0.1);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            height: 40px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Мини-логотип как иконка */
+        .logo-mini {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo-mini img {
+            height: 24px;
+            width: 24px;
+            border-radius: 4px;
+            filter: drop-shadow(0 0 6px rgba(64, 224, 208, 0.5));
+        }
+
+        .logo-badge {
+            background: var(--primary);
+            color: var(--background);
+            padding: 0.15rem 0.4rem;
+            border-radius: 10px;
+            font-size: 0.65rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        /* Компактный заголовок с датой */
+        .header-title-compact {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            color: var(--text);
+        }
+
+        .title-text {
+            font-size: 0.95rem;
+            font-weight: 500;
+            opacity: 0.9;
+        }
+
+        .date-indicator {
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+            padding: 0.25rem 0.6rem;
+            background: rgba(64, 224, 208, 0.1);
+            border: 1px solid rgba(64, 224, 208, 0.2);
+            border-radius: 15px;
+            font-size: 0.7rem;
+            font-weight: 500;
+            color: var(--primary);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .date-indicator:hover {
+            background: rgba(64, 224, 208, 0.15);
+            transform: translateY(-1px);
+        }
+
+        .date-indicator .date-icon {
+            font-size: 0.8rem;
+        }
+
+        /* Quick actions */
+        .header-quick-actions {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .quick-action-btn {
+            width: 28px;
+            height: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(64, 224, 208, 0.1);
+            border: 1px solid transparent;
+            border-radius: 8px;
+            color: var(--primary);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .quick-action-btn:hover {
+            background: var(--primary);
+            color: var(--background);
+            transform: scale(1.1);
+        }
+
+        /* Плавающая панель дат */
+        .floating-date-panel {
+            position: fixed;
+            top: 50px;
+            right: 1.5rem;
+            background: var(--background-light);
+            border: 1px solid var(--panel-border);
+            border-radius: 12px;
+            padding: 0.75rem;
+            display: none;
+            z-index: 999;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            animation: slideIn 0.3s ease;
+        }
+
+        .floating-date-panel.show {
+            display: block;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .date-option {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.6rem 0.8rem;
+            margin: 0.25rem 0;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .date-option:hover {
+            background: rgba(64, 224, 208, 0.1);
+        }
+
+        .date-option.active {
+            background: var(--primary);
+            color: var(--background);
+        }
+
+        .date-option-label {
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .date-option-desc {
+            font-size: 0.7rem;
+            opacity: 0.7;
+        }
+
+        /* Контент с учетом фиксированного header */
+        .main-content-compact {
+            display: flex;
+            flex: 1;
+            height: 100vh;
+            padding-top: 40px;
+            overflow: hidden;
+        }
+
+        /* Статус-бар внизу (опционально) */
+        .status-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 25px;
+            background: var(--background-light);
+            border-top: 1px solid var(--panel-border);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 1rem;
+            font-size: 0.7rem;
+            color: var(--text-secondary);
+            z-index: 100;
+        }
+
+        .status-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .status-indicator {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--primary);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.5;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Ультра-компактный Header - 40px -->
+        <header class="header-ultra-compact">
+            <div class="logo-mini">
+                <img src="images/logo.png" alt="КК">
+                <span class="logo-badge">КК</span>
+            </div>
+            
+            <div class="header-title-compact">
+                <span class="title-text">Демо-презентация</span>
+                <div class="date-indicator" onclick="toggleDatePanel()">
+                    <span class="date-icon">📅</span>
+                    <span id="current-date-text">02.10.2025</span>
+                </div>
+            </div>
+            
+            <div class="header-quick-actions">
+                <button class="quick-action-btn" title="Полноэкранный режим" onclick="toggleFullscreen()">⛶</button>
+                <button class="quick-action-btn" title="Настройки" onclick="toggleSettings()">⚙</button>
+            </div>
+        </header>
+
+        <!-- Плавающая панель выбора даты -->
+        <div class="floating-date-panel" id="datePanel">
+            <div class="date-option active" data-date="2025-10-02" onclick="selectDate(this)">
+                <div>
+                    <div class="date-option-label">2 октября 2025</div>
+                    <div class="date-option-desc">Актуальное демо</div>
+                </div>
+            </div>
+            <div class="date-option" data-date="2025-08-28" onclick="selectDate(this)">
+                <div>
+                    <div class="date-option-label">28 августа 2025</div>
+                    <div class="date-option-desc">Итоги августа</div>
+                </div>
+            </div>
+            <div class="date-option" data-date="2025-06-26" onclick="selectDate(this)">
+                <div>
+                    <div class="date-option-label">26 июня 2025</div>
+                    <div class="date-option-desc">Предыдущее демо</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content с компактным header -->
+        <main class="main-content-compact">
+            <!-- Здесь остается тот же контент из основного файла -->
+            <!-- Копируем sidebar и content-panel из index.html -->
+        </main>
+
+        <!-- Опциональный статус-бар -->
+        <div class="status-bar">
+            <div class="status-item">
+                <span class="status-indicator"></span>
+                <span>Версия 1.5</span>
+            </div>
+            <div class="status-item">
+                <span>Карманный консультант © 2025</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleDatePanel() {
+            const panel = document.getElementById('datePanel');
+            panel.classList.toggle('show');
+        }
+
+        function selectDate(element) {
+            // Убираем active у всех
+            document.querySelectorAll('.date-option').forEach(opt => {
+                opt.classList.remove('active');
+            });
+            
+            // Добавляем active выбранному
+            element.classList.add('active');
+            
+            // Обновляем текст в header
+            const date = element.dataset.date;
+            const dateMap = {
+                '2025-10-02': '02.10.2025',
+                '2025-08-28': '28.08.2025',
+                '2025-06-26': '26.06.2025'
+            };
+            document.getElementById('current-date-text').textContent = dateMap[date] || date;
+            
+            // Закрываем панель
+            document.getElementById('datePanel').classList.remove('show');
+            
+            // Здесь добавить логику переключения контента
+        }
+
+        function toggleFullscreen() {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen();
+            } else {
+                document.exitFullscreen();
+            }
+        }
+
+        function toggleSettings() {
+            // Заглушка для настроек
+            console.log('Settings panel');
+        }
+
+        // Закрытие панели при клике вне её
+        document.addEventListener('click', function(e) {
+            const datePanel = document.getElementById('datePanel');
+            const dateIndicator = document.querySelector('.date-indicator');
+            
+            if (!datePanel.contains(e.target) && !dateIndicator.contains(e.target)) {
+                datePanel.classList.remove('show');
+            }
+        });
+    </script>
+</body>
+</html>

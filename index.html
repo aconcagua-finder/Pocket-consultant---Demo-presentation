@@ -1,0 +1,1256 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Карманный консультант - Демо день</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Compact Header with Horizontal Layout -->
+        <header class="header" id="header">
+            <div class="header-left">
+                <div class="logo">
+                    <img src="images/logo.png" alt="Pocket Consultant">
+                    <span class="logo-text">Карманный консультант</span>
+                </div>
+                <div class="header-divider"></div>
+                <h1 class="main-title">Презентация для демо-дня</h1>
+            </div>
+            <div class="header-right">
+                <div class="date-toggle">
+                    <button class="date-btn" data-date="2025-06-26">26.06.2025</button>
+                    <button class="date-btn" data-date="2025-08-28">28.08.2025</button>
+                    <button class="date-btn active" data-date="2025-10-02">02.10.2025</button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Sidebar -->
+            <aside class="sidebar">
+                <div class="tiles-panel">
+                    <div class="tile active" data-section="general">
+                        <div class="tile-content">
+                            <h3>Общие изменения</h3>
+                            <div class="tile-avatar">
+                                <img src="images/anzhelika.png" alt="Anzhelika">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tile" data-section="marketing">
+                        <div class="tile-content">
+                            <h3>Маркетинг</h3>
+                            <div class="tile-avatars">
+                                <div class="avatar">
+                                    <img src="images/nikita.png" alt="Nikita">
+                                </div>
+                                <div class="avatar">
+                                    <img src="images/lesha.png" alt="Aleksei">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tile" data-section="backend">
+                        <div class="tile-content">
+                            <h3>Разработка</h3>
+                            <div class="tile-avatar">
+                                <img src="images/igor.png" alt="Igor">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tile" data-section="frontend">
+                        <div class="tile-content">
+                            <h3>Фронтенд</h3>
+                            <div class="tile-avatar">
+                                <img src="images/Evgeniy_Belyakov.png" alt="Evgeniy">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tile" data-section="ai">
+                        <div class="tile-content">
+                            <h3>AI и промпты</h3>
+                            <div class="tile-avatar">
+                                <img src="images/dima.png" alt="Dmitry">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tile tile-summary" data-section="summary">
+                        <div class="tile-content">
+                            <h3>Итоги</h3>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Content Panel -->
+            <div class="content-panel">
+                <!-- Content for 02.10.2025 (Current) -->
+                <div class="date-content active" data-date="2025-10-02">
+                    <div class="content-section active" id="general">
+                        <!-- Заголовок убран для экономии места -->
+                        <h2 style="display:none;"><span class="section-icon">📊</span> Общие изменения проекта</h2>
+                        <div class="content-list">
+                            <div class="task-card" data-status="done">
+                                <div class="task-indicator"></div>
+                                <div class="task-body">
+                                    <div class="task-header">
+                                        <span class="status-badge">Выполнено</span>
+                                    </div>
+                                    <p class="task-content">Найдены контакты Консультант+, направлена информация с презентацией</p>
+                                </div>
+                            </div>
+
+                            <div class="task-card" data-status="done">
+                                <div class="task-indicator"></div>
+                                <div class="task-body">
+                                    <div class="task-header">
+                                        <span class="status-badge">Выполнено</span>
+                                    </div>
+                                    <p class="task-content">Направлена презентация и сопроводительное письмо представителю WildBerries</p>
+                                </div>
+                            </div>
+
+                            <div class="task-card" data-status="done">
+                                <div class="task-indicator"></div>
+                                <div class="task-body">
+                                    <div class="task-header">
+                                        <span class="status-badge">Выполнено</span>
+                                    </div>
+                                    <p class="task-content">Алексей Водолажский направил информацию продакт-менеджеру в Клерк.ру</p>
+                                </div>
+                            </div>
+
+                            <div class="task-card" data-status="done">
+                                <div class="task-indicator"></div>
+                                <div class="task-body">
+                                    <div class="task-header">
+                                        <span class="status-badge">Выполнено</span>
+                                    </div>
+                                    <p class="task-content">Марина направила информацию по консультанту в логистическую компанию и 1С-Бит</p>
+                                </div>
+                            </div>
+
+                            <div class="task-card" data-status="done">
+                                <div class="task-indicator"></div>
+                                <div class="task-body">
+                                    <div class="task-header">
+                                        <span class="status-badge">Выполнено</span>
+                                    </div>
+                                    <p class="task-content">Проведена подготовка к депонированию, информация передана юристам</p>
+                                </div>
+                            </div>
+
+                            <div class="task-card" data-status="planned">
+                                <div class="task-indicator"></div>
+                                <div class="task-body">
+                                    <div class="task-header">
+                                        <span class="status-badge">Планируется</span>
+                                    </div>
+                                    <p class="task-content">Новая тарифная система</p>
+                                </div>
+                            </div>
+
+                            <div class="task-card" data-status="planned">
+                                <div class="task-indicator"></div>
+                                <div class="task-body">
+                                    <div class="task-header">
+                                        <span class="status-badge">Планируется</span>
+                                    </div>
+                                    <p class="task-content">Интеграция с Гарантом в экспертном режиме</p>
+                                </div>
+                            </div>
+
+                            <div class="task-card" data-status="planned">
+                                <div class="task-indicator"></div>
+                                <div class="task-body">
+                                    <div class="task-header">
+                                        <span class="status-badge">Планируется</span>
+                                    </div>
+                                    <p class="task-content">Исправление контекстного окна</p>
+                                </div>
+                            </div>
+
+                            <div class="task-card" data-status="planned">
+                                <div class="task-indicator"></div>
+                                <div class="task-body">
+                                    <div class="task-header">
+                                        <span class="status-badge">Планируется</span>
+                                    </div>
+                                    <p class="task-content">Голосовой ввод</p>
+                                </div>
+                            </div>
+
+                            <div class="task-card" data-status="planned">
+                                <div class="task-indicator"></div>
+                                <div class="task-body">
+                                    <div class="task-header">
+                                        <span class="status-badge">Планируется</span>
+                                    </div>
+                                    <p class="task-content">Поиск партнёров</p>
+                                </div>
+                            </div>
+
+                            <div class="task-card" data-status="planned">
+                                <div class="task-indicator"></div>
+                                <div class="task-body">
+                                    <div class="task-header">
+                                        <span class="status-badge">Планируется</span>
+                                    </div>
+                                    <p class="task-content">Прямая реклама после запуска новых тарифов</p>
+                                </div>
+                            </div>
+
+                            <div class="task-card" data-status="planned">
+                                <div class="task-indicator"></div>
+                                <div class="task-body">
+                                    <div class="task-header">
+                                        <span class="status-badge">Планируется</span>
+                                    </div>
+                                    <p class="task-content">White label брендирование под ЦФУ</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-section" id="marketing">
+                        <!-- Заголовок убран для экономии места -->
+                        <h2 style="display:none;"><span class="section-icon">📈</span> Маркетинг</h2>
+                        <div class="content-list">
+                            <div class="task-card" data-status="done">
+                                <div class="task-indicator"></div>
+                                <div class="task-body">
+                                    <div class="task-header">
+                                        <span class="status-badge">Выполнено</span>
+                                    </div>
+                                    <p class="task-content">Проведено рассылка на 227 контактов по обновлению платформы, проведено 2 интервью JTBD</p>
+                                </div>
+                            </div>
+
+                            <div class="task-card" data-status="done">
+                                <div class="task-indicator"></div>
+                                <div class="task-body">
+                                    <div class="task-header">
+                                        <span class="status-badge">Выполнено</span>
+                                    </div>
+                                    <p class="task-content">Внедрен кросс-маркетинг с продуктами компании внутри консультанта (28 упоминаний ЦФУ)</p>
+                                </div>
+                            </div>
+
+                            <div class="task-card" data-status="done">
+                                <div class="task-indicator"></div>
+                                <div class="task-body">
+                                    <div class="task-header">
+                                        <span class="status-badge">Выполнено</span>
+                                    </div>
+                                    <p class="task-content">Кроссмаркетинг на сайте ЦФУГРУПП.РФ и CFUNALOG.RU, ожидаем добавление в триггерное письмо</p>
+                                </div>
+                            </div>
+
+                            <div class="task-card" data-status="done">
+                                <div class="task-indicator"></div>
+                                <div class="task-body">
+                                    <div class="task-header">
+                                        <span class="status-badge">Выполнено</span>
+                                    </div>
+                                    <p class="task-content">Анонс сервиса среди сотрудников и промокод для команды</p>
+                                </div>
+                            </div>
+
+                            <div class="task-card" data-status="done">
+                                <div class="task-indicator"></div>
+                                <div class="task-body">
+                                    <div class="task-header">
+                                        <span class="status-badge">Выполнено</span>
+                                    </div>
+                                    <p class="task-content">Рассылка писем к сотрудничеству компаниям из рейтинга ПРАВО-300</p>
+                                </div>
+                            </div>
+
+                            <div class="task-card" data-status="done">
+                                <div class="task-indicator"></div>
+                                <div class="task-body">
+                                    <div class="task-header">
+                                        <span class="status-badge">Выполнено</span>
+                                    </div>
+                                    <p class="task-content">Проведена тестовая рекламная кампания (12 520 ₽, 59 лидов, CPL 212 ₽)</p>
+                                </div>
+                            </div>
+
+                            <div class="task-card" data-status="progress">
+                                <div class="task-indicator"></div>
+                                <div class="task-body">
+                                    <div class="task-header">
+                                        <span class="status-badge">В процессе</span>
+                                    </div>
+                                    <p class="task-content">Запуск активностей в СМИ — исследуем стоимость, готовим аккаунты и статьи</p>
+                                </div>
+                            </div>
+
+                            <div class="task-card" data-status="progress">
+                                <div class="task-indicator"></div>
+                                <div class="task-body">
+                                    <div class="task-header">
+                                        <span class="status-badge">В процессе</span>
+                                    </div>
+                                    <p class="task-content">Исследуем альтернативные площадки для продвижения и партнерства</p>
+                                </div>
+                            </div>
+
+                            <div class="task-card" data-status="planned">
+                                <div class="task-indicator"></div>
+                                <div class="task-body">
+                                    <div class="task-header">
+                                        <span class="status-badge">Планируется</span>
+                                    </div>
+                                    <p class="task-content">White label брендирование под ЦФУ</p>
+                                </div>
+                            </div>
+
+                            <div class="task-card" data-status="planned">
+                                <div class="task-indicator"></div>
+                                <div class="task-body">
+                                    <div class="task-header">
+                                        <span class="status-badge">Планируется</span>
+                                    </div>
+                                    <p class="task-content">Обновление лендинга (новые тарифы и актуализация информации)</p>
+                                </div>
+                            </div>
+
+                            <div class="task-card" data-status="planned">
+                                <div class="task-indicator"></div>
+                                <div class="task-body">
+                                    <div class="task-header">
+                                        <span class="status-badge">Планируется</span>
+                                    </div>
+                                    <p class="task-content">Анкеты обратной связи для действующих пользователей</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-section" id="development">
+                        <!-- Заголовок убран для экономии места -->
+                        <h2 style="display:none;"><span class="section-icon">⚙️</span> Разработка</h2>
+                        <div class="content-list">
+                            <div class="task-card" data-status="done">
+                                <div class="task-indicator"></div>
+                                <div class="task-body">
+                                    <div class="task-header">
+                                        <span class="status-badge">Выполнено</span>
+                                    </div>
+                                    <p class="task-content">Провели рефакторинг кодовой базы (этап 1) под требования депонирования</p>
+                                </div>
+                            </div>
+
+                            <div class="task-card" data-status="done">
+                                <div class="task-indicator"></div>
+                                <div class="task-body">
+                                    <div class="task-header">
+                                        <span class="status-badge">Выполнено</span>
+                                    </div>
+                                    <p class="task-content">Доработали прокси-приложение для запросов к OpenAI с новыми моделями и параметрами</p>
+                                </div>
+                            </div>
+
+                            <div class="task-card" data-status="done">
+                                <div class="task-indicator"></div>
+                                <div class="task-body">
+                                    <div class="task-header">
+                                        <span class="status-badge">Выполнено</span>
+                                    </div>
+                                    <p class="task-content">Закамуфлировали вызовы моделей ChatGPT и Perplexity в коде</p>
+                                </div>
+                            </div>
+
+                            <div class="task-card" data-status="progress">
+                                <div class="task-indicator"></div>
+                                <div class="task-body">
+                                    <div class="task-header">
+                                        <span class="status-badge">В процессе</span>
+                                    </div>
+                                    <p class="task-content">Новая тарифная система (80% готовности, оплата в рублях и подписка)</p>
+                                </div>
+                            </div>
+
+                            <div class="task-card" data-status="planned">
+                                <div class="task-indicator"></div>
+                                <div class="task-body">
+                                    <div class="task-header">
+                                        <span class="status-badge">Планируется</span>
+                                    </div>
+                                    <p class="task-content">Базовый анализ документов (чтение без сохранения)</p>
+                                </div>
+                            </div>
+
+                            <div class="task-card" data-status="planned">
+                                <div class="task-indicator"></div>
+                                <div class="task-body">
+                                    <div class="task-header">
+                                        <span class="status-badge">Планируется</span>
+                                    </div>
+                                    <p class="task-content">Голосовой ввод на локальной или whisper-подобной модели</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-section" id="ai">
+                        <!-- Заголовок убран для экономии места -->
+                        <h2 style="display:none;"><span class="section-icon">🤖</span> AI-функции</h2>
+                        <div class="content-list">
+                            <div class="task-card" data-status="done">
+                                <div class="task-indicator"></div>
+                                <div class="task-body">
+                                    <div class="task-header">
+                                        <span class="status-badge">Выполнено</span>
+                                    </div>
+                                    <p class="task-content">Исправлено функционирование экспертного режима (особенности ChatGPT 5 и корпоративного прокси)</p>
+                                </div>
+                            </div>
+
+                            <div class="task-card" data-status="done">
+                                <div class="task-indicator"></div>
+                                <div class="task-body">
+                                    <div class="task-header">
+                                        <span class="status-badge">Выполнено</span>
+                                    </div>
+                                    <p class="task-content">Переработан алгоритм экспертного режима для более человечных ответов</p>
+                                </div>
+                            </div>
+
+                            <div class="task-card" data-status="progress">
+                                <div class="task-indicator"></div>
+                                <div class="task-body">
+                                    <div class="task-header">
+                                        <span class="status-badge">В процессе</span>
+                                    </div>
+                                    <p class="task-content">Модель работы с API Гаранта готова, интеграция в приложение на подходе</p>
+                                </div>
+                            </div>
+
+                            <div class="task-card" data-status="planned">
+                                <div class="task-indicator"></div>
+                                <div class="task-body">
+                                    <div class="task-header">
+                                        <span class="status-badge">Планируется</span>
+                                    </div>
+                                    <p class="task-content">Новая схема работы с контекстом цепочек запросов</p>
+                                </div>
+                            </div>
+
+                            <div class="task-card" data-status="planned">
+                                <div class="task-indicator"></div>
+                                <div class="task-body">
+                                    <div class="task-header">
+                                        <span class="status-badge">Планируется</span>
+                                    </div>
+                                    <p class="task-content">Персонализация ответов через профили пользователей</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-section" id="summary">
+                        <!-- Заголовок убран для экономии места -->
+                        <h2 style="display:none;"><span class="section-icon">🎯</span> Итоги демо 02.10.2025</h2>
+                        <div class="summary-grid">
+                            <div class="summary-block">
+                                <h3>🌟 Общий прогресс</h3>
+                                <ul>
+                                    <li>Отправлены запросы на партнерство через личные контакты сотрудников</li>
+                                    <li>Документы для депонирования переданы юристам</li>
+                                    <li>Запланированы новые тарифы и голосовой ввод</li>
+                                    <li>Дальнейший поиск партнеров для сотрудничества</li>
+                                </ul>
+                            </div>
+                            <div class="summary-block">
+                                <h3>📊 Маркетинг</h3>
+                                <ul>
+                                    <li>Рассылка 227 контактам и серия интервью</li>
+                                    <li>Кросс-маркетинг активирован в продуктах и каналах</li>
+                                    <li>Начата реализация активностей в СМИ</li>
+                                    <li>Исследование альтернативных площадок для продвижения и партнерства</li>
+                                </ul>
+                            </div>
+                            <div class="summary-block">
+                                <h3>💼 Разработка</h3>
+                                <ul>
+                                    <li>Рефакторинг и прокси для новых моделей завершены</li>
+                                    <li>Новая тарифная система на финальной стадии</li>
+                                    <li>Планируем анализ документов и голосовой ввод</li>
+                                </ul>
+                            </div>
+                            <div class="summary-block">
+                                <h3>🧠 AI-функции</h3>
+                                <ul>
+                                    <li>Экспертный режим перестроен и стабилен</li>
+                                    <li>Интеграция API Гаранта готовится к запуску</li>
+                                    <li>Готовим расширенный контекст и персонализацию</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Content for 28.08.2025 -->
+                <div class="date-content" data-date="2025-08-28">
+                    <div class="content-section" id="general">
+                        <!-- Заголовок убран для экономии места -->
+                        <h2 style="display:none;"><span class="section-icon">📊</span> Общие изменения проекта</h2>
+                        <div class="content-list">
+                            <div class="task-card" data-status="progress">
+                                <div class="task-indicator"></div>
+                                <div class="task-body">
+                                    <div class="task-header">
+                                        <span class="status-badge">В процессе</span>
+                                    </div>
+                                    <p class="task-content">Версия 1.5 на финальной стадии тестирования на дев-сервере</p>
+                                </div>
+                            </div>
+
+                            <div class="task-card" data-status="progress">
+                                <div class="task-indicator"></div>
+                                <div class="task-body">
+                                    <div class="task-header">
+                                        <span class="status-badge">В процессе</span>
+                                    </div>
+                                    <p class="task-content">Проработка API Гаранта для внедрения в ответы модели</p>
+                                </div>
+                            </div>
+
+                            <div class="task-card" data-status="progress">
+                                <div class="task-indicator"></div>
+                                <div class="task-body">
+                                    <div class="task-header">
+                                        <span class="status-badge">В процессе</span>
+                                    </div>
+                                    <p class="task-content">Внедрение режима экспертного ответа</p>
+                                </div>
+                            </div>
+
+                            <div class="task-card" data-status="progress">
+                                <div class="task-indicator"></div>
+                                <div class="task-body">
+                                    <div class="task-header">
+                                        <span class="status-badge">В процессе</span>
+                                    </div>
+                                    <p class="task-content">Интерфейс на новом стеке версии 2.0</p>
+                                </div>
+                            </div>
+
+                            <div class="task-card" data-status="planned">
+                                <div class="task-indicator"></div>
+                                <div class="task-body">
+                                    <div class="task-header">
+                                        <span class="status-badge">Планируется</span>
+                                    </div>
+                                    <p class="task-content">Возможность анализа документов</p>
+                                </div>
+                            </div>
+
+                            <div class="task-card" data-status="planned">
+                                <div class="task-indicator"></div>
+                                <div class="task-body">
+                                    <div class="task-header">
+                                        <span class="status-badge">Планируется</span>
+                                    </div>
+                                    <p class="task-content">Подготовка документов для депонирования продукта после релиза 1.5</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-section" id="marketing">
+                        <!-- Заголовок убран для экономии места -->
+                        <h2 style="display:none;"><span class="section-icon">📈</span> Достижения маркетинга</h2>
+                        <div class="content-list">
+                            <div class="task-card" data-status="done">
+                                <div class="task-indicator"></div>
+                                <div class="task-body">
+                                    <div class="task-header">
+                                        <span class="status-badge">Выполнено</span>
+                                    </div>
+                                    <p class="task-content">Подготовлена новая рекламная кампания с видеокреативами (ждет версию 1.5)</p>
+                                </div>
+                            </div>
+
+                            <div class="task-card" data-status="done">
+                                <div class="task-indicator"></div>
+                                <div class="task-body">
+                                    <div class="task-header">
+                                        <span class="status-badge">Выполнено</span>
+                                    </div>
+                                    <p class="task-content">Сформирована база контактов юридических фирм для таргетированной рассылки</p>
+                                </div>
+                            </div>
+
+                            <div class="task-card" data-status="done">
+                                <div class="task-indicator"></div>
+                                <div class="task-body">
+                                    <div class="task-header">
+                                        <span class="status-badge">Выполнено</span>
+                                    </div>
+                                    <p class="task-content">Проведена встреча с Гарант, достигнуты договоренности по интеграции</p>
+                                </div>
+                            </div>
+
+                            <div class="task-card" data-status="done">
+                                <div class="task-indicator"></div>
+                                <div class="task-body">
+                                    <div class="task-header">
+                                        <span class="status-badge">Выполнено</span>
+                                    </div>
+                                    <p class="task-content">Масштабная переработка интерфейса с применением современных UX-практик</p>
+                                </div>
+                            </div>
+
+                            <div class="task-card" data-status="done">
+                                <div class="task-indicator"></div>
+                                <div class="task-body">
+                                    <div class="task-header">
+                                        <span class="status-badge">Выполнено</span>
+                                    </div>
+                                    <p class="task-content">Кроссмаркетинг интегрирован в ответы модели для увеличения конверсии</p>
+                                </div>
+                            </div>
+
+                            <div class="task-card" data-status="done">
+                                <div class="task-indicator"></div>
+                                <div class="task-body">
+                                    <div class="task-header">
+                                        <span class="status-badge">Выполнено</span>
+                                    </div>
+                                    <p class="task-content">Интеграция упоминаний консультанта на всех сайтах компании</p>
+                                </div>
+                            </div>
+
+                            <div class="task-card" data-status="done">
+                                <div class="task-indicator"></div>
+                                <div class="task-body">
+                                    <div class="task-header">
+                                        <span class="status-badge">Выполнено</span>
+                                    </div>
+                                    <p class="task-content">Настроен ежемесячный постинг в Telegram-канал компании</p>
+                                </div>
+                            </div>
+
+                            <div class="task-card" data-status="planned">
+                                <div class="task-indicator"></div>
+                                <div class="task-body">
+                                    <div class="task-header">
+                                        <span class="status-badge">Планируется</span>
+                                    </div>
+                                    <p class="task-content">Запуск рекламной кампании</p>
+                                </div>
+                            </div>
+
+                            <div class="task-card" data-status="planned">
+                                <div class="task-indicator"></div>
+                                <div class="task-body">
+                                    <div class="task-header">
+                                        <span class="status-badge">Планируется</span>
+                                    </div>
+                                    <p class="task-content">Поиск новых контактов для партнерства</p>
+                                </div>
+                            </div>
+
+                            <div class="task-card" data-status="planned">
+                                <div class="task-indicator"></div>
+                                <div class="task-body">
+                                    <div class="task-header">
+                                        <span class="status-badge">Планируется</span>
+                                    </div>
+                                    <p class="task-content">Рассылка с релизом версии 1.5 по базе Neo-ai.pro и pocket-consultant.ru</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-section" id="backend">
+                        <!-- Заголовок убран для экономии места -->
+                        <h2 style="display:none;"><span class="section-icon">⚙️</span> Backend разработка</h2>
+                        <div class="content-list">
+                            <div class="task-card" data-status="done">
+                                <div class="task-indicator"></div>
+                                <div class="task-body">
+                                    <div class="task-header">
+                                        <span class="status-badge">Выполнено</span>
+                                    </div>
+                                    <p class="task-content">Разработан коннектор для API Гарант</p>
+                                </div>
+                            </div>
+
+                            <div class="task-card" data-status="done">
+                                <div class="task-indicator"></div>
+                                <div class="task-body">
+                                    <div class="task-header">
+                                        <span class="status-badge">Выполнено</span>
+                                    </div>
+                                    <p class="task-content">Проведена большая работа с репозиторием (слияние веток, обновление БД)</p>
+                                </div>
+                            </div>
+
+                            <div class="task-card" data-status="progress">
+                                <div class="task-indicator"></div>
+                                <div class="task-body">
+                                    <div class="task-header">
+                                        <span class="status-badge">В процессе</span>
+                                    </div>
+                                    <p class="task-content">API для нового фронтенда - стадия внедрения и тестирования</p>
+                                </div>
+                            </div>
+
+                            <div class="task-card" data-status="planned">
+                                <div class="task-indicator"></div>
+                                <div class="task-body">
+                                    <div class="task-header">
+                                        <span class="status-badge">Планируется</span>
+                                    </div>
+                                    <p class="task-content">Рефакторинг кода для эффективной работы команды</p>
+                                </div>
+                            </div>
+
+                            <div class="task-card" data-status="planned">
+                                <div class="task-indicator"></div>
+                                <div class="task-body">
+                                    <div class="task-header">
+                                        <span class="status-badge">Планируется</span>
+                                    </div>
+                                    <p class="task-content">Разработка новой тарифной системы с гибкими опциями</p>
+                                </div>
+                            </div>
+
+                            <div class="task-card" data-status="planned">
+                                <div class="task-indicator"></div>
+                                <div class="task-body">
+                                    <div class="task-header">
+                                        <span class="status-badge">Планируется</span>
+                                    </div>
+                                    <p class="task-content">Разработка API для корпоративных клиентов</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-section" id="frontend">
+                        <!-- Заголовок убран для экономии места -->
+                        <h2 style="display:none;"><span class="section-icon">💻</span> Frontend разработка</h2>
+                        <div class="content-list">
+                            <div class="task-card" data-status="done">
+                                <div class="task-indicator"></div>
+                                <div class="task-body">
+                                    <div class="task-header">
+                                        <span class="status-badge">Выполнено</span>
+                                    </div>
+                                    <p class="task-content">Авторизация с автоматическим обновлением сессии</p>
+                                </div>
+                            </div>
+
+                            <div class="task-card" data-status="done">
+                                <div class="task-indicator"></div>
+                                <div class="task-body">
+                                    <div class="task-header">
+                                        <span class="status-badge">Выполнено</span>
+                                    </div>
+                                    <p class="task-content">Загрузка и отображение информации профиля пользователя</p>
+                                </div>
+                            </div>
+
+                            <div class="task-card" data-status="done">
+                                <div class="task-indicator"></div>
+                                <div class="task-body">
+                                    <div class="task-header">
+                                        <span class="status-badge">Выполнено</span>
+                                    </div>
+                                    <p class="task-content">Получение и управление списком диалогов</p>
+                                </div>
+                            </div>
+
+                            <div class="task-card" data-status="done">
+                                <div class="task-indicator"></div>
+                                <div class="task-body">
+                                    <div class="task-header">
+                                        <span class="status-badge">Выполнено</span>
+                                    </div>
+                                    <p class="task-content">Функциональность удаления диалогов</p>
+                                </div>
+                            </div>
+
+                            <div class="task-card" data-status="progress">
+                                <div class="task-indicator"></div>
+                                <div class="task-body">
+                                    <div class="task-header">
+                                        <span class="status-badge">В процессе</span>
+                                    </div>
+                                    <p class="task-content">Создание диалогов в двух режимах (UI формы готовы, бэкенд в процессе)</p>
+                                </div>
+                            </div>
+
+                            <div class="task-card" data-status="progress">
+                                <div class="task-indicator"></div>
+                                <div class="task-body">
+                                    <div class="task-header">
+                                        <span class="status-badge">В процессе</span>
+                                    </div>
+                                    <p class="task-content">Интерфейс оплаты тарифов</p>
+                                </div>
+                            </div>
+
+                            <div class="task-card" data-status="planned">
+                                <div class="task-indicator"></div>
+                                <div class="task-body">
+                                    <div class="task-header">
+                                        <span class="status-badge">Планируется</span>
+                                    </div>
+                                    <p class="task-content">Возможность оценки ответа модели</p>
+                                </div>
+                            </div>
+
+                            <div class="task-card" data-status="planned">
+                                <div class="task-indicator"></div>
+                                <div class="task-body">
+                                    <div class="task-header">
+                                        <span class="status-badge">Планируется</span>
+                                    </div>
+                                    <p class="task-content">Возможность оставить отзыв о работе консультанта</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-section" id="ai">
+                        <!-- Заголовок убран для экономии места -->
+                        <h2 style="display:none;"><span class="section-icon">🤖</span> AI и промпт-инжиниринг</h2>
+                        <div class="content-list">
+                            <div class="task-card" data-status="done">
+                                <div class="task-indicator"></div>
+                                <div class="task-body">
+                                    <div class="task-header">
+                                        <span class="status-badge">Выполнено</span>
+                                    </div>
+                                    <p class="task-content">Промпты переработаны с учетом лучших практик GPT-5</p>
+                                </div>
+                            </div>
+
+                            <div class="task-card" data-status="done">
+                                <div class="task-indicator"></div>
+                                <div class="task-body">
+                                    <div class="task-header">
+                                        <span class="status-badge">Выполнено</span>
+                                    </div>
+                                    <p class="task-content">Экспертный режим: интеграция Sonar-Pro + GPT-5 для максимальной точности</p>
+                                </div>
+                            </div>
+
+                            <div class="task-card" data-status="done">
+                                <div class="task-indicator"></div>
+                                <div class="task-body">
+                                    <div class="task-header">
+                                        <span class="status-badge">Выполнено</span>
+                                    </div>
+                                    <p class="task-content">Функция "Продолжить диалог" - модель предлагает следующие вопросы</p>
+                                </div>
+                            </div>
+
+                            <div class="task-card" data-status="done">
+                                <div class="task-indicator"></div>
+                                <div class="task-body">
+                                    <div class="task-header">
+                                        <span class="status-badge">Выполнено</span>
+                                    </div>
+                                    <p class="task-content">Perplexity обновлен до версии High для повышения точности</p>
+                                </div>
+                            </div>
+
+                            <div class="task-card" data-status="done">
+                                <div class="task-indicator"></div>
+                                <div class="task-body">
+                                    <div class="task-header">
+                                        <span class="status-badge">Выполнено</span>
+                                    </div>
+                                    <p class="task-content">Протестирована комбинация Sonar Deep Research + GPT 4.1</p>
+                                </div>
+                            </div>
+
+                            <div class="task-card" data-status="planned">
+                                <div class="task-indicator"></div>
+                                <div class="task-body">
+                                    <div class="task-header">
+                                        <span class="status-badge">Планируется</span>
+                                    </div>
+                                    <p class="task-content">Оптимизация промптов для новых сценариев</p>
+                                </div>
+                            </div>
+
+                            <div class="task-card" data-status="planned">
+                                <div class="task-indicator"></div>
+                                <div class="task-body">
+                                    <div class="task-header">
+                                        <span class="status-badge">Планируется</span>
+                                    </div>
+                                    <p class="task-content">Тестирование Claude Sonnet 4 для специфических задач</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-section" id="summary">
+                        <!-- Заголовок убран для экономии места -->
+                        <h2 style="display:none;"><span class="section-icon">🎯</span> Итоги демо 28.08.2025</h2>
+                        <div class="summary-grid">
+                            <div class="summary-block">
+                                <h3>🌟 Общий прогресс</h3>
+                                <ul>
+                                    <li>Версия 1.5 почти готова</li>
+                                    <li>Интерфейс 2.0 в активной разработке</li>
+                                    <li>API Гаранта в процессе интеграции</li>
+                                    <li>Готовится новая архитектура тарифов</li>
+                                </ul>
+                            </div>
+                            <div class="summary-block">
+                                <h3>📊 Маркетинг</h3>
+                                <ul>
+                                    <li>База юридических фирм сформирована</li>
+                                    <li>Кросс-маркетинг внедрен</li>
+                                    <li>Редизайн UI/UX завершен</li>
+                                </ul>
+                            </div>
+                            <div class="summary-block">
+                                <h3>💼 Разработка</h3>
+                                <ul>
+                                    <li>Frontend: NextChat в процессе адаптации</li>
+                                    <li>Новая тарифная система в разработке</li>
+                                    <li>Рефакторинг в процессе</li>
+                                </ul>
+                            </div>
+                            <div class="summary-block">
+                                <h3>🧠 AI и промпты</h3>
+                                <ul>
+                                    <li>Экспертный режим тестируется</li>
+                                    <li>Внедряется новая модель GPT-5</li>
+                                    <li>Функция продолжения диалога</li>
+                                    <li>Тестирование Claude Sonnet 4</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Content for 26.06.2025 (Previous) -->
+                <div class="date-content" data-date="2025-06-26">
+                    <div class="content-section" id="general">
+                        <!-- Заголовок убран для экономии места -->
+                        <h2 style="display:none;"><span class="section-icon">📊</span> Общие вопросы</h2>
+                        <div class="content-list">
+                            <div class="task-card" data-status="done">
+                                <div class="task-indicator"></div>
+                                <div class="task-body">
+                                    <div class="task-header">
+                                        <span class="status-badge">Выполнено</span>
+                                    </div>
+                                    <p class="task-content">Юридические вопросы персональных данных решены с юристами</p>
+                                </div>
+                            </div>
+                            <div class="task-card" data-status="done">
+                                <div class="task-indicator"></div>
+                                <div class="task-body">
+                                    <div class="task-header">
+                                        <span class="status-badge">Выполнено</span>
+                                    </div>
+                                    <p class="task-content">Юридические вопросы для подключения кассы решены</p>
+                                </div>
+                            </div>
+                            <div class="task-card" data-status="done">
+                                <div class="task-indicator"></div>
+                                <div class="task-body">
+                                    <div class="task-header">
+                                        <span class="status-badge">Выполнено</span>
+                                    </div>
+                                    <p class="task-content">Первичные переговоры с Контуром, презентация отправлена</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-section" id="marketing">
+                        <!-- Заголовок убран для экономии места -->
+                        <h2 style="display:none;"><span class="section-icon">📈</span> Маркетинг</h2>
+                        <div class="content-list">
+                            <div class="task-card" data-status="done">
+                                <div class="task-indicator"></div>
+                                <div class="task-body">
+                                    <div class="task-header">
+                                        <span class="status-badge">Выполнено</span>
+                                    </div>
+                                    <p class="task-content">Рекламная кампания Яндекс.Директ подготовлена детально</p>
+                                </div>
+                            </div>
+                            <div class="task-card" data-status="done">
+                                <div class="task-indicator"></div>
+                                <div class="task-body">
+                                    <div class="task-header">
+                                        <span class="status-badge">Выполнено</span>
+                                    </div>
+                                    <p class="task-content">Партнерская презентация создана и доработана</p>
+                                </div>
+                            </div>
+                            <div class="task-card" data-status="done">
+                                <div class="task-indicator"></div>
+                                <div class="task-body">
+                                    <div class="task-header">
+                                        <span class="status-badge">Выполнено</span>
+                                    </div>
+                                    <p class="task-content">Реклама консультанта на авто-вебинаре Klerk (5 лидов)</p>
+                                </div>
+                            </div>
+                            <div class="task-card" data-status="done">
+                                <div class="task-indicator"></div>
+                                <div class="task-body">
+                                    <div class="task-header">
+                                        <span class="status-badge">Выполнено</span>
+                                    </div>
+                                    <p class="task-content">Поиск контактов лиц, принимающих решения, для юридических баз и фирм</p>
+                                </div>
+                            </div>
+                            <div class="task-card" data-status="done">
+                                <div class="task-indicator"></div>
+                                <div class="task-body">
+                                    <div class="task-header">
+                                        <span class="status-badge">Выполнено</span>
+                                    </div>
+                                    <p class="task-content">30+ приглашений к партнерству отправлено через LinkedIn</p>
+                                </div>
+                            </div>
+                            <div class="task-card" data-status="done">
+                                <div class="task-indicator"></div>
+                                <div class="task-body">
+                                    <div class="task-header">
+                                        <span class="status-badge">Выполнено</span>
+                                    </div>
+                                    <p class="task-content">Запрос на партнерство отправлен в Action</p>
+                                </div>
+                            </div>
+                            <div class="task-card" data-status="done">
+                                <div class="task-indicator"></div>
+                                <div class="task-body">
+                                    <div class="task-header">
+                                        <span class="status-badge">Выполнено</span>
+                                    </div>
+                                    <p class="task-content">Проведена встреча по развитию партнерства</p>
+                                </div>
+                            </div>
+                            <div class="task-card" data-status="done">
+                                <div class="task-indicator"></div>
+                                <div class="task-body">
+                                    <div class="task-header">
+                                        <span class="status-badge">Выполнено</span>
+                                    </div>
+                                    <p class="task-content">Telegram-версия Карманного консультанта запущена</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-section" id="backend-old">
+                        <!-- Заголовок убран для экономии места -->
+                        <h2 style="display:none;"><span class="section-icon">⚙️</span> Backend разработка</h2>
+                        <div class="content-list">
+                            <div class="task-card" data-status="done">
+                                <div class="task-indicator"></div>
+                                <div class="task-body">
+                                    <div class="task-header">
+                                        <span class="status-badge">Выполнено</span>
+                                    </div>
+                                    <p class="task-content">Проект перенесен на сервера компании</p>
+                                </div>
+                            </div>
+                            <div class="task-card" data-status="done">
+                                <div class="task-indicator"></div>
+                                <div class="task-body">
+                                    <div class="task-header">
+                                        <span class="status-badge">Выполнено</span>
+                                    </div>
+                                    <p class="task-content">Проект переписан на Django с базой данных</p>
+                                </div>
+                            </div>
+                            <div class="task-card" data-status="done">
+                                <div class="task-indicator"></div>
+                                <div class="task-body">
+                                    <div class="task-header">
+                                        <span class="status-badge">Выполнено</span>
+                                    </div>
+                                    <p class="task-content">Система авторизации и регистрации внедрена</p>
+                                </div>
+                            </div>
+                            <div class="task-card" data-status="done">
+                                <div class="task-indicator"></div>
+                                <div class="task-body">
+                                    <div class="task-header">
+                                        <span class="status-badge">Выполнено</span>
+                                    </div>
+                                    <p class="task-content">Механизм промокодов и реферальных ссылок разработан</p>
+                                </div>
+                            </div>
+                            <div class="task-card" data-status="done">
+                                <div class="task-indicator"></div>
+                                <div class="task-body">
+                                    <div class="task-header">
+                                        <span class="status-badge">Выполнено</span>
+                                    </div>
+                                    <p class="task-content">Начата разработка мобильной версии</p>
+                                </div>
+                            </div>
+                            <div class="task-card" data-status="done">
+                                <div class="task-indicator"></div>
+                                <div class="task-body">
+                                    <div class="task-header">
+                                        <span class="status-badge">Выполнено</span>
+                                    </div>
+                                    <p class="task-content">Добавлена платежная система (в тестировании)</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-section" id="frontend-old">
+                        <!-- Заголовок убран для экономии места -->
+                        <h2 style="display:none;"><span class="section-icon">💻</span> Frontend разработка</h2>
+                        <div class="content-list">
+                            <div class="task-card" data-status="planned">
+                                <div class="task-indicator"></div>
+                                <div class="task-body">
+                                    <div class="task-header">
+                                        <span class="status-badge">Заметка</span>
+                                    </div>
+                                    <p class="task-content">Frontend разработчик присоединился к команде после этого демо</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-section" id="ai">
+                        <!-- Заголовок убран для экономии места -->
+                        <h2 style="display:none;"><span class="section-icon">🤖</span> Настройка AI</h2>
+                        <div class="content-list">
+                            <div class="task-card" data-status="done">
+                                <div class="task-indicator"></div>
+                                <div class="task-body">
+                                    <div class="task-header">
+                                        <span class="status-badge">Выполнено</span>
+                                    </div>
+                                    <p class="task-content">Добавлена поддержка контекстного окна и истории сообщений</p>
+                                </div>
+                            </div>
+                            <div class="task-card" data-status="done">
+                                <div class="task-indicator"></div>
+                                <div class="task-body">
+                                    <div class="task-header">
+                                        <span class="status-badge">Выполнено</span>
+                                    </div>
+                                    <p class="task-content">Механизм уточняющих вопросов внедрен</p>
+                                </div>
+                            </div>
+                            <div class="task-card" data-status="done">
+                                <div class="task-indicator"></div>
+                                <div class="task-body">
+                                    <div class="task-header">
+                                        <span class="status-badge">Выполнено</span>
+                                    </div>
+                                    <p class="task-content">Внедрена валидация запросов пользователя</p>
+                                </div>
+                            </div>
+                            <div class="task-card" data-status="done">
+                                <div class="task-indicator"></div>
+                                <div class="task-body">
+                                    <div class="task-header">
+                                        <span class="status-badge">Выполнено</span>
+                                    </div>
+                                    <p class="task-content">Поиск информации локализован на надежные источники</p>
+                                </div>
+                            </div>
+                            <div class="task-card" data-status="done">
+                                <div class="task-indicator"></div>
+                                <div class="task-body">
+                                    <div class="task-header">
+                                        <span class="status-badge">Выполнено</span>
+                                    </div>
+                                    <p class="task-content">Механизм сжатия сообщений для экономии токенов</p>
+                                </div>
+                            </div>
+                            <div class="task-card" data-status="done">
+                                <div class="task-indicator"></div>
+                                <div class="task-body">
+                                    <div class="task-header">
+                                        <span class="status-badge">Выполнено</span>
+                                    </div>
+                                    <p class="task-content">Работа распределена между 3 моделями: sonar-pro, gpt-4o-mini, gpt-4o-nano</p>
+                                </div>
+                            </div>
+                            <div class="task-card" data-status="done">
+                                <div class="task-indicator"></div>
+                                <div class="task-body">
+                                    <div class="task-header">
+                                        <span class="status-badge">Выполнено</span>
+                                    </div>
+                                    <p class="task-content">Системный промпт полностью переработан</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-section" id="summary">
+                        <!-- Заголовок убран для экономии места -->
+                        <h2 style="display:none;"><span class="section-icon">🎯</span> Итоги демо 26.06.2025</h2>
+                        <div class="summary-grid">
+                            <div class="summary-block">
+                                <h3>🌟 Общие вопросы</h3>
+                                <ul>
+                                    <li>Юридические вопросы решены</li>
+                                    <li>Переговоры с Контуром начаты</li>
+                                </ul>
+                            </div>
+                            <div class="summary-block">
+                                <h3>📊 Маркетинг</h3>
+                                <ul>
+                                    <li>Кампания Яндекс.Директ готова</li>
+                                    <li>30+ приглашений в LinkedIn</li>
+                                    <li>Telegram-бот запущен</li>
+                                </ul>
+                            </div>
+                            <div class="summary-block">
+                                <h3>💼 Backend</h3>
+                                <ul>
+                                    <li>Миграция на Django с БД</li>
+                                    <li>Система авторизации</li>
+                                    <li>Платежная система</li>
+                                </ul>
+                            </div>
+                            <div class="summary-block">
+                                <h3>🧠 AI</h3>
+                                <ul>
+                                    <li>Контекстное окно</li>
+                                    <li>Валидация запросов</li>
+                                    <li>3 AI модели</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

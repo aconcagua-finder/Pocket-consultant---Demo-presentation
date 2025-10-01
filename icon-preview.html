@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Превью иконок статусов</title>
+    <style>
+        :root {
+            --background: #0A0F14;
+            --background-light: #111922;
+            --panel-border: rgba(64, 224, 208, 0.1);
+            --text: #F0F4F8;
+            --success: #5EEAD4;
+            --progress: #FBBF24;
+            --planned: #A78BFA;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--background);
+            color: var(--text);
+            padding: 2rem;
+            min-height: 100vh;
+        }
+        
+        h1 {
+            color: #40E0D0;
+            margin-bottom: 2rem;
+            font-size: 1.5rem;
+            text-align: center;
+        }
+        
+        .variants-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+        
+        .variant-card {
+            background: var(--background-light);
+            border: 1px solid var(--panel-border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .variant-card:hover {
+            border-color: rgba(64, 224, 208, 0.3);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .variant-title {
+            color: #40E0D0;
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        
+        .status-preview {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+        
+        .status-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 6px;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .status-item svg {
+            flex-shrink: 0;
+        }
+        
+        .status-icon-unicode {
+            font-size: 14px;
+            line-height: 1;
+            vertical-align: middle;
+        }
+        
+        /* CSS-only иконки */
+        .status-icon-css {
+            display: inline-block;
+            width: 14px;
+            height: 14px;
+            position: relative;
+        }
+        
+        .done-icon::before {
+            content: '';
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            border: 1.5px solid #5EEAD4;
+            border-radius: 50%;
+            top: 0;
+            left: 0;
+        }
+        
+        .done-icon::after {
+            content: '';
+            position: absolute;
+            width: 3px;
+            height: 6px;
+            border: solid #5EEAD4;
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+            top: 2px;
+            left: 4px;
+        }
+        
+        .progress-icon::before {
+            content: '';
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            border: 1.5px solid #FBBF24;
+            border-radius: 50%;
+            border-top-color: transparent;
+            animation: rotate 1s linear infinite;
+            top: 0;
+            left: 0;
+        }
+        
+        .progress-icon::after {
+            content: '';
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: #FBBF24;
+            border-radius: 50%;
+            top: 4px;
+            left: 4px;
+        }
+        
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        .planned-icon::before {
+            content: '';
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            border: 1.5px solid #A78BFA;
+            border-radius: 2px;
+            top: 0;
+            left: 0;
+        }
+        
+        .planned-icon::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            height: 1px;
+            background: #A78BFA;
+            top: 5px;
+            left: 3px;
+            box-shadow: 0 3px 0 #A78BFA;
+        }
+        
+        .recommended {
+            position: relative;
+        }
+        
+        .recommended::before {
+            content: 'РЕКОМЕНДУЕТСЯ';
+            position: absolute;
+            top: -10px;
+            right: 10px;
+            background: linear-gradient(135deg, #40E0D0, #2BA5A0);
+            color: #0A0F14;
+            font-size: 0.6rem;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+        
+        .code-block {
+            margin-top: 1rem;
+            padding: 0.75rem;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 6px;
+            font-family: monospace;
+            font-size: 0.7rem;
+            color: #5EEAD4;
+            overflow-x: auto;
+        }
+        
+        .description {
+            color: #94A3B8;
+            font-size: 0.8rem;
+            margin-top: 0.5rem;
+            line-height: 1.4;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <h1>Варианты современных иконок для статусов задач</h1>
+    
+    <div class="variants-container">
+        <!-- Вариант 1 -->
+        <div class="variant-card recommended">
+            <h2 class="variant-title">Вариант 1: Минималистичные SVG (Текущий)</h2>
+            <div class="status-preview">
+                <div class="status-item" style="color: #5EEAD4;">
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                        <circle cx="7" cy="7" r="6" stroke="#5EEAD4" stroke-width="1.5"/>
+                        <path d="M4 7L6 9L10 5" stroke="#5EEAD4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    Выполнено
+                </div>
+                <div class="status-item" style="color: #FBBF24;">
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                        <circle cx="7" cy="7" r="6" stroke="#FBBF24" stroke-width="1.5" stroke-dasharray="28" stroke-dashoffset="7" stroke-linecap="round">
+                            <animateTransform
+                                attributeName="transform"
+                                type="rotate"
+                                from="0 7 7"
+                                to="360 7 7"
+                                dur="2s"
+                                repeatCount="indefinite"/>
+                        </circle>
+                        <circle cx="7" cy="7" r="2.5" fill="#FBBF24"/>
+                    </svg>
+                    В процессе
+                </div>
+                <div class="status-item" style="color: #A78BFA;">
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                        <rect x="2" y="2" width="10" height="10" rx="2" stroke="#A78BFA" stroke-width="1.5"/>
+                        <circle cx="5" cy="5" r="1" fill="#A78BFA"/>
+                        <line x1="8" y1="5" x2="10" y2="5" stroke="#A78BFA" stroke-width="1" stroke-linecap="round"/>
+                        <line x1="4" y1="9" x2="10" y2="9" stroke="#A78BFA" stroke-width="1" stroke-linecap="round"/>
+                    </svg>
+                    Планируется
+                </div>
+            </div>
+            <p class="description">Четкие векторные иконки с анимацией. Идеально для профессиональной презентации.</p>
+        </div>
+        
+        <!-- Вариант 2 -->
+        <div class="variant-card">
+            <h2 class="variant-title">Вариант 2: Геометрические формы</h2>
+            <div class="status-preview">
+                <div class="status-item" style="color: #5EEAD4;">
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                        <path d="M7 1L13 7L7 13L1 7L7 1Z" fill="#5EEAD4" opacity="0.2"/>
+                        <path d="M4.5 7L6 8.5L9.5 5" stroke="#5EEAD4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    Выполнено
+                </div>
+                <div class="status-item" style="color: #FBBF24;">
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                        <circle cx="7" cy="7" r="6" fill="#FBBF24" opacity="0.2"/>
+                        <path d="M7 4V7L9 9" stroke="#FBBF24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    В процессе
+                </div>
+                <div class="status-item" style="color: #A78BFA;">
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                        <rect x="2" y="2" width="10" height="10" rx="1" fill="#A78BFA" opacity="0.2"/>
+                        <rect x="5" y="5" width="4" height="1" fill="#A78BFA"/>
+                        <rect x="5" y="8" width="4" height="1" fill="#A78BFA"/>
+                    </svg>
+                    Планируется
+                </div>
+            </div>
+            <p class="description">Заполненные формы с акцентами. Более заметные, но менее минималистичные.</p>
+        </div>
+        
+        <!-- Вариант 3 -->
+        <div class="variant-card">
+            <h2 class="variant-title">Вариант 3: Ультра-минимализм</h2>
+            <div class="status-preview">
+                <div class="status-item" style="color: #5EEAD4;">
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                        <circle cx="7" cy="7" r="6" stroke="#5EEAD4" stroke-width="1" opacity="0.3"/>
+                        <circle cx="7" cy="7" r="3" fill="#5EEAD4"/>
+                    </svg>
+                    Выполнено
+                </div>
+                <div class="status-item" style="color: #FBBF24;">
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                        <circle cx="4" cy="7" r="1.5" fill="#FBBF24" opacity="0.3"/>
+                        <circle cx="7" cy="7" r="1.5" fill="#FBBF24" opacity="0.6"/>
+                        <circle cx="10" cy="7" r="1.5" fill="#FBBF24"/>
+                    </svg>
+                    В процессе
+                </div>
+                <div class="status-item" style="color: #A78BFA;">
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                        <line x1="3" y1="4" x2="11" y2="4" stroke="#A78BFA" stroke-width="1.5" stroke-linecap="round"/>
+                        <line x1="3" y1="7" x2="11" y2="7" stroke="#A78BFA" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/>
+                        <line x1="3" y1="10" x2="11" y2="10" stroke="#A78BFA" stroke-width="1.5" stroke-linecap="round" opacity="0.3"/>
+                    </svg>
+                    Планируется
+                </div>
+            </div>
+            <p class="description">Максимально простые формы. Подходит для очень минималистичного дизайна.</p>
+        </div>
+        
+        <!-- Вариант 4 -->
+        <div class="variant-card">
+            <h2 class="variant-title">Вариант 4: Unicode символы</h2>
+            <div class="status-preview">
+                <div class="status-item" style="color: #5EEAD4;">
+                    <span class="status-icon-unicode">◉</span>
+                    Выполнено
+                </div>
+                <div class="status-item" style="color: #FBBF24;">
+                    <span class="status-icon-unicode">◈</span>
+                    В процессе
+                </div>
+                <div class="status-item" style="color: #A78BFA;">
+                    <span class="status-icon-unicode">▣</span>
+                    Планируется
+                </div>
+            </div>
+            <p class="description">Простые Unicode символы. Легковесное решение, но зависит от системных шрифтов.</p>
+        </div>
+        
+        <!-- Вариант 5 -->
+        <div class="variant-card">
+            <h2 class="variant-title">Вариант 5: CSS-only иконки</h2>
+            <div class="status-preview">
+                <div class="status-item" style="color: #5EEAD4;">
+                    <span class="status-icon-css done-icon"></span>
+                    Выполнено
+                </div>
+                <div class="status-item" style="color: #FBBF24;">
+                    <span class="status-icon-css progress-icon"></span>
+                    В процессе
+                </div>
+                <div class="status-item" style="color: #A78BFA;">
+                    <span class="status-icon-css planned-icon"></span>
+                    Планируется
+                </div>
+            </div>
+            <p class="description">Иконки полностью на CSS. Нет внешних зависимостей, полный контроль над стилями.</p>
+        </div>
+        
+        <!-- Старый вариант для сравнения -->
+        <div class="variant-card">
+            <h2 class="variant-title">Старый вариант (для сравнения)</h2>
+            <div class="status-preview">
+                <div class="status-item" style="color: #5EEAD4;">
+                    ✅ Выполнено
+                </div>
+                <div class="status-item" style="color: #FBBF24;">
+                    🔄 В процессе
+                </div>
+                <div class="status-item" style="color: #A78BFA;">
+                    📋 Планируется
+                </div>
+            </div>
+            <p class="description">Emoji иконки. Выглядят непрофессионально и по-разному на разных платформах.</p>
+        </div>
+    </div>
+    
+    <div style="max-width: 1200px; margin: 3rem auto 0;">
+        <div class="variant-card">
+            <h2 class="variant-title">Как использовать в коде</h2>
+            <div class="code-block">
+// Текущая реализация в script.js<br>
+header.innerHTML = `<br>
+&nbsp;&nbsp;&lt;h3&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;svg class="status-icon" width="14" height="14" viewBox="0 0 14 14" fill="none"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;circle cx="7" cy="7" r="6" stroke="#5EEAD4" stroke-width="1.5"/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;path d="M4 7L6 9L10 5" stroke="#5EEAD4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/svg&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Выполнено<br>
+&nbsp;&nbsp;&lt;/h3&gt;<br>
+`;
+            </div>
+        </div>
+    </div>
+</body>
+</html>
